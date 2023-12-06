@@ -1,0 +1,575 @@
+{
+  "actions-panel": {
+    "code": 1,
+    "contextCode": 6,
+    "page": 1,
+    "rowCount": 3,
+    "columnCount": 6,
+    "actionPanelItems": [
+      {
+        "code": 2,
+        "actionCode": 2,
+        "row": 2,
+        "column": 1,
+        "rowSpan": 1,
+        "columnSpan": 1,
+        "color": "",
+        "name": ""
+      },
+      {
+        "code": 9,
+        "actionCode": 34,
+        "row": 3,
+        "column": 1,
+        "rowSpan": 1,
+        "columnSpan": 1,
+        "color": "",
+        "name": ""
+      },
+      {
+        "code": 1,
+        "actionCode": 8,
+        "row": 1,
+        "column": 1,
+        "rowSpan": 1,
+        "columnSpan": 1,
+        "color": "4a90e2",
+        "name": "св"
+      },
+      {
+        "code": 16,
+        "actionCode": 101,
+        "row": 1,
+        "column": 5,
+        "rowSpan": 3,
+        "columnSpan": 1,
+        "color": "ed2e28",
+        "name": ""
+      },
+      {
+        "code": 4,
+        "actionCode": 15,
+        "row": 1,
+        "column": 2,
+        "rowSpan": 1,
+        "columnSpan": 2,
+        "color": "",
+        "name": ""
+      },
+      {
+        "code": 6,
+        "actionCode": 9,
+        "row": 3,
+        "column": 2,
+        "rowSpan": 1,
+        "columnSpan": 1,
+        "color": "",
+        "name": ""
+      }
+    ]
+  },
+  "contexts": [
+    {
+      "contextCode": 6,
+      "contextName": "Открытый документ"
+    },
+    {
+      "contextCode": 7,
+      "contextName": "Подитог (оплата)"
+    },
+    {
+      "contextCode": 8,
+      "contextName": "Сдача"
+    },
+    {
+      "contextCode": 9,
+      "contextName": "Закрытый документ"
+    },
+    {
+      "contextCode": 17,
+      "contextName": "Режим инвентаризации"
+    }
+  ],
+  "actions": [
+    {
+      "actionCode": 2,
+      "actionName": "Выход"
+    },
+    {
+      "actionCode": 3,
+      "actionName": "Регистрация кассира"
+    },
+    {
+      "actionCode": 6,
+      "actionName": "Монитор кассира (продажа)"
+    },
+    {
+      "actionCode": 7,
+      "actionName": "Режим \"Продажа\""
+    },
+    {
+      "actionCode": 8,
+      "actionName": "Режим \"Возврат\""
+    },
+    {
+      "actionCode": 9,
+      "actionName": "Изменить количество"
+    },
+    {
+      "actionCode": 10,
+      "actionName": "Изменить цену"
+    },
+    {
+      "actionCode": 11,
+      "actionName": "Ввод по штрих-коду"
+    },
+    {
+      "actionCode": 12,
+      "actionName": "Ввод по коду"
+    },
+    {
+      "actionCode": 14,
+      "actionName": "Изменить отдел"
+    },
+    {
+      "actionCode": 15,
+      "actionName": "Сторно текущей позиции"
+    },
+    {
+      "actionCode": 16,
+      "actionName": "Сторно всех позиций"
+    },
+    {
+      "actionCode": 18,
+      "actionName": "Применить модификаторы к позиции"
+    },
+    {
+      "actionCode": 19,
+      "actionName": "Продажа в отдел"
+    },
+    {
+      "actionCode": 22,
+      "actionName": "Взвесить"
+    },
+    {
+      "actionCode": 23,
+      "actionName": "Печать копии чека"
+    },
+    {
+      "actionCode": 24,
+      "actionName": "Печать товарного чека"
+    },
+    {
+      "actionCode": 25,
+      "actionName": "Информация о карте"
+    },
+    {
+      "actionCode": 28,
+      "actionName": "Информация о товаре (по штрих-коду)"
+    },
+    {
+      "actionCode": 29,
+      "actionName": "Выбрать по штрих-коду"
+    },
+    {
+      "actionCode": 30,
+      "actionName": "Расфасовка"
+    },
+    {
+      "actionCode": 33,
+      "actionName": "Открыть денежный ящик"
+    },
+    {
+      "actionCode": 34,
+      "actionName": "Калькулятор"
+    },
+    {
+      "actionCode": 35,
+      "actionName": "Итог"
+    },
+    {
+      "actionCode": 37,
+      "actionName": "Выбрать тип оплаты"
+    },
+    {
+      "actionCode": 49,
+      "actionName": "Почековая выгрузка"
+    },
+    {
+      "actionCode": 50,
+      "actionName": "Карта: добавить"
+    },
+    {
+      "actionCode": 53,
+      "actionName": "Внесение денег"
+    },
+    {
+      "actionCode": 54,
+      "actionName": "Выем денег"
+    },
+    {
+      "actionCode": 56,
+      "actionName": "Выход"
+    },
+    {
+      "actionCode": 59,
+      "actionName": "Просмотр документа"
+    },
+    {
+      "actionCode": 62,
+      "actionName": "X отчет (ФР)"
+    },
+    {
+      "actionCode": 63,
+      "actionName": "Z отчет (ФР)"
+    },
+    {
+      "actionCode": 64,
+      "actionName": "Отчет по отделам (ФР)"
+    },
+    {
+      "actionCode": 65,
+      "actionName": "X отчет"
+    },
+    {
+      "actionCode": 68,
+      "actionName": "Закрытие смены"
+    },
+    {
+      "actionCode": 69,
+      "actionName": "Тест табло покупателя"
+    },
+    {
+      "actionCode": 70,
+      "actionName": "Тест денежного ящика"
+    },
+    {
+      "actionCode": 71,
+      "actionName": "Тест устройств ввода"
+    },
+    {
+      "actionCode": 72,
+      "actionName": "Тест ККМ"
+    },
+    {
+      "actionCode": 74,
+      "actionName": "Z отчет"
+    },
+    {
+      "actionCode": 75,
+      "actionName": "Отчет по отделам"
+    },
+    {
+      "actionCode": 76,
+      "actionName": "Отчет по сторно"
+    },
+    {
+      "actionCode": 77,
+      "actionName": "Отчет по сторно (текущая смена)"
+    },
+    {
+      "actionCode": 78,
+      "actionName": "Обслуживание системы"
+    },
+    {
+      "actionCode": 79,
+      "actionName": "Сверка итогов по безналу"
+    },
+    {
+      "actionCode": 87,
+      "actionName": "Добавить оплату в чеке"
+    },
+    {
+      "actionCode": 90,
+      "actionName": "Режим \"Инвентаризация\""
+    },
+    {
+      "actionCode": 92,
+      "actionName": "Скидка по кнопке"
+    },
+    {
+      "actionCode": 94,
+      "actionName": "Документ: аннулировать"
+    },
+    {
+      "actionCode": 95,
+      "actionName": "Документ: аннулировать последний"
+    },
+    {
+      "actionCode": 99,
+      "actionName": "Информация о товаре (по наименованию)"
+    },
+    {
+      "actionCode": 101,
+      "actionName": "Подытог"
+    },
+    {
+      "actionCode": 103,
+      "actionName": "Карта: удалить"
+    },
+    {
+      "actionCode": 106,
+      "actionName": "Возврат по чеку продажи"
+    },
+    {
+      "actionCode": 111,
+      "actionName": "Выбрать по наименованию"
+    },
+    {
+      "actionCode": 112,
+      "actionName": "Выбрать по коду"
+    },
+    {
+      "actionCode": 113,
+      "actionName": "Информация о товаре (по коду)"
+    },
+    {
+      "actionCode": 115,
+      "actionName": "Сумма в денежном ящике"
+    },
+    {
+      "actionCode": 116,
+      "actionName": "Отложить чек"
+    },
+    {
+      "actionCode": 117,
+      "actionName": "Восстановить чек"
+    },
+    {
+      "actionCode": 121,
+      "actionName": "Выгрузка продаж"
+    },
+    {
+      "actionCode": 122,
+      "actionName": "Ввод"
+    },
+    {
+      "actionCode": 131,
+      "actionName": "Сформировать файл продаж"
+    },
+    {
+      "actionCode": 133,
+      "actionName": "Выгрузка продаж в КС"
+    },
+    {
+      "actionCode": 184,
+      "actionName": "Печать отчета по безналу"
+    },
+    {
+      "actionCode": 186,
+      "actionName": "Вход в тренировочный режим"
+    },
+    {
+      "actionCode": 187,
+      "actionName": "Выход из тренировочного режима"
+    },
+    {
+      "actionCode": 189,
+      "actionName": "Вызвать меню \"Сервис\""
+    },
+    {
+      "actionCode": 190,
+      "actionName": "О программе"
+    },
+    {
+      "actionCode": 191,
+      "actionName": "Оплатить бонусами"
+    },
+    {
+      "actionCode": 192,
+      "actionName": "Выбрать по цене"
+    },
+    {
+      "actionCode": 193,
+      "actionName": "Выбрать по артикулу"
+    },
+    {
+      "actionCode": 194,
+      "actionName": "Информация о товаре (по цене)"
+    },
+    {
+      "actionCode": 195,
+      "actionName": "Информация о товаре (по артикулу)"
+    },
+    {
+      "actionCode": 196,
+      "actionName": "Встроенный браузер"
+    },
+    {
+      "actionCode": 197,
+      "actionName": "Горячая клавиша №1"
+    },
+    {
+      "actionCode": 198,
+      "actionName": "Подытог по карте"
+    },
+    {
+      "actionCode": 200,
+      "actionName": "Отмена"
+    },
+    {
+      "actionCode": 201,
+      "actionName": "Перезагрузить кассу"
+    },
+    {
+      "actionCode": 202,
+      "actionName": "Перезапустить программу"
+    },
+    {
+      "actionCode": 203,
+      "actionName": "Выключить кассу"
+    },
+    {
+      "actionCode": 204,
+      "actionName": "Отчет по бонусам"
+    },
+    {
+      "actionCode": 205,
+      "actionName": "Журнал учета алкогольной продукции"
+    },
+    {
+      "actionCode": 206,
+      "actionName": "Обязательный выем денежных средств"
+    },
+    {
+      "actionCode": 207,
+      "actionName": "Баланс банковской карты"
+    },
+    {
+      "actionCode": 208,
+      "actionName": "Удалить купоны"
+    },
+    {
+      "actionCode": 209,
+      "actionName": "Режим \"Возврат поставщику\""
+    },
+    {
+      "actionCode": 211,
+      "actionName": "Выбрать скидку из списка"
+    },
+    {
+      "actionCode": 212,
+      "actionName": "Отменить скидки выбранные вручную"
+    },
+    {
+      "actionCode": 214,
+      "actionName": "Выбор консультанта из списка"
+    },
+    {
+      "actionCode": 215,
+      "actionName": "Тест весов"
+    },
+    {
+      "actionCode": 216,
+      "actionName": "Назначить консультанта на свободные позиции"
+    },
+    {
+      "actionCode": 217,
+      "actionName": "Добавить адрес покупателя"
+    },
+    {
+      "actionCode": 218,
+      "actionName": "Отключить контроль финансовых операций"
+    },
+    {
+      "actionCode": 219,
+      "actionName": "Просмотр электронного журнала"
+    },
+    {
+      "actionCode": 220,
+      "actionName": "Выем без участия кассира"
+    },
+    {
+      "actionCode": 221,
+      "actionName": "Лицензионное соглашение"
+    },
+    {
+      "actionCode": 222,
+      "actionName": "Отчет по налогам (ФР)"
+    },
+    {
+      "actionCode": 223,
+      "actionName": "Авторасчет социальных товаров"
+    },
+    {
+      "actionCode": 224,
+      "actionName": "Пометка позиции как 'социальная'"
+    },
+    {
+      "actionCode": 225,
+      "actionName": "Печать копии фискального документа"
+    },
+    {
+      "actionCode": 226,
+      "actionName": "Получить информацию по сертификату"
+    },
+    {
+      "actionCode": 227,
+      "actionName": "ESC"
+    },
+    {
+      "actionCode": 228,
+      "actionName": "Подбор товара по нескольким параметрам"
+    },
+    {
+      "actionCode": 229,
+      "actionName": "Коррекция прихода"
+    },
+    {
+      "actionCode": 230,
+      "actionName": "Коррекция расхода"
+    },
+    {
+      "actionCode": 231,
+      "actionName": "Отчет по кассирам"
+    },
+    {
+      "actionCode": 232,
+      "actionName": "Просмотр информации по нескольким параметрам"
+    },
+    {
+      "actionCode": 233,
+      "actionName": "Ввести 00"
+    },
+    {
+      "actionCode": 234,
+      "actionName": "Печать счета-фактуры"
+    },
+    {
+      "actionCode": 235,
+      "actionName": "Просмотр отложенных чеков"
+    },
+    {
+      "actionCode": 236,
+      "actionName": "Отрезка бумаги"
+    },
+    {
+      "actionCode": 237,
+      "actionName": "Восстановить онлайн-чек"
+    },
+    {
+      "actionCode": 242,
+      "actionName": "Софт-чек"
+    },
+    {
+      "actionCode": 244,
+      "actionName": "Возврат с указанной суммой в отдел"
+    },
+    {
+      "actionCode": 245,
+      "actionName": "Работа с ТТН (ЕГАИС)"
+    },
+    {
+      "actionCode": 246,
+      "actionName": "Выбор товара из каталога"
+    },
+    {
+      "actionCode": 247,
+      "actionName": "Добавление сертификата"
+    },
+    {
+      "actionCode": 248,
+      "actionName": "Открыть смену"
+    }
+  ]
+}
