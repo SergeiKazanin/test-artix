@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { ActionPanelItem, Actions } from "../types/types";
 import { Box, IconButton, Typography } from "@mui/material";
 import { useDrag, DragPreviewImage } from "react-dnd";
@@ -17,6 +17,7 @@ interface ButtonProps {
 const ButtonTouch: FC<ButtonProps> = ({ actionPanelItem, actions }) => {
   const { deleteTouchButton } = useActions();
   const { freeArea } = useAppSelector((store) => store.panel);
+  const [displayButtons, setDisplayButtons] = useState("none");
   let item = {
     col: actionPanelItem.column,
     row: actionPanelItem.row,
@@ -48,7 +49,6 @@ const ButtonTouch: FC<ButtonProps> = ({ actionPanelItem, actions }) => {
             ? `${actionPanelItem.color}`
             : "e2e2e2"
         }`,
-
         border: isDragging ? 1 : "none",
         boxShadow: isDragging ? 3 : "none",
         display: "flex",
@@ -68,6 +68,8 @@ const ButtonTouch: FC<ButtonProps> = ({ actionPanelItem, actions }) => {
           ? `${actionPanelItem.row}/span ${actionPanelItem.rowSpan}`
           : actionPanelItem.row
       }
+      onMouseOver={() => setDisplayButtons((prev) => (prev = "box"))}
+      onMouseOut={() => setDisplayButtons((prev) => (prev = "none"))}
     >
       <Typography
         variant="caption"
@@ -84,7 +86,13 @@ const ButtonTouch: FC<ButtonProps> = ({ actionPanelItem, actions }) => {
       </Typography>
       <IconButton
         onClick={() => deleteTouchButton(item)}
-        sx={{ p: "5px", position: "absolute", bottom: "0px", left: "0px" }}
+        sx={{
+          p: "5px",
+          position: "absolute",
+          bottom: "0px",
+          left: "0px",
+          display: displayButtons,
+        }}
       >
         <DeleteIcon />
       </IconButton>
@@ -98,11 +106,15 @@ const ButtonTouch: FC<ButtonProps> = ({ actionPanelItem, actions }) => {
           top: "0px",
           left: "0px",
           cursor: "move",
+          display: displayButtons,
         }}
       >
         <ZoomOutMapIcon sx={{ rotate: "45deg" }} />
       </IconButton>
-      <StretchButton actionPanelItem={actionPanelItem} />
+      <StretchButton
+        actionPanelItem={actionPanelItem}
+        display={displayButtons}
+      />
     </Box>
   );
 };

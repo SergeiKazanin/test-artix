@@ -9,9 +9,13 @@ import { useAppSelector } from "../hooks/redux";
 
 interface StretchButtonProps {
   actionPanelItem: ActionPanelItem;
+  display: string;
 }
 
-const StretchButton: FC<StretchButtonProps> = ({ actionPanelItem }) => {
+const StretchButton: FC<StretchButtonProps> = ({
+  actionPanelItem,
+  display,
+}) => {
   const { freeArea } = useAppSelector((store) => store.panel);
   let item = {
     col: actionPanelItem.column,
@@ -42,6 +46,7 @@ const StretchButton: FC<StretchButtonProps> = ({ actionPanelItem }) => {
           bottom: "0px",
           right: "0px",
           opacity: isDragging ? 0.5 : 1,
+          display: display,
         }}
         ref={drag}
       >
