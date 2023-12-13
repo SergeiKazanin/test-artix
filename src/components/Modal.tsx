@@ -30,7 +30,7 @@ const Modal: FC<ModalProps> = ({
   const { freeArea } = useAppSelector((store) => store.panel);
   const [color, setColor] = useState("#e2e2e2");
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
-  const [action, setAction] = useState<number>(0);
+
   const [name, setName] = useState<string>("");
 
   const {
@@ -42,7 +42,7 @@ const Modal: FC<ModalProps> = ({
   if (!isFetchingActions && !isErrorActions && actions) {
     actionsLoaded = actions;
   }
-
+  const [action, setAction] = useState<number>(actionsLoaded[0]?.actionCode);
   return (
     <>
       <Box
@@ -99,11 +99,12 @@ const Modal: FC<ModalProps> = ({
           <Autocomplete
             disablePortal
             id="context"
+            disableClearable={true}
             options={actionsLoaded.map((action) => action.actionName)}
             fullWidth={true}
             value={
               actionsLoaded.find((item) => action === item?.actionCode)
-                ?.actionName || null
+                ?.actionName
             }
             onChange={(event: any, newValue: string | null) => {
               setAction(

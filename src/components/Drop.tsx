@@ -19,34 +19,45 @@ const DropArea: FC<DropAreaProps> = ({ col, row }) => {
 
   const CanDropArea = (touchButton: TouchButton): boolean => {
     if (touchButton.item.stretch) {
-      // const spanArea = [] as SpanArea[];
-      // for (
-      //   let i = touchButton.item.col;
-      //   i <= col - touchButton.item.col + 2;
-      //   i++
-      // ) {
-      //   for (
-      //     let j = touchButton.item.row;
-      //     j <= row - touchButton.item.row + 2;
-      //     j++
-      //   ) {
-      //     spanArea.push({ col: i, row: j });
-      //   }
-      // }
-      // console.log(spanArea, col, row);
-      // for (let i = 0; i < spanArea.length; i++) {
-      //   const find = touchButton.item.freeArea.find(
-      //     (item) => item.col === spanArea[i].col && item.row === spanArea[i].row
-      //   );
-      //   if (!find) {
-      //     return false;
-      //   }
-      // }
+      const spanArea = [] as SpanArea[];
+      for (let i = touchButton.item.col; i <= touchButton.col; i++) {
+        for (let j = touchButton.item.row; j <= touchButton.row; j++) {
+          spanArea.push({ col: i, row: j });
+        }
+      }
+
+      const newFreeArea = [...touchButton.item.freeArea];
+      for (let i = 0; i < touchButton.item.colSpan; i++) {
+        for (let j = 0; j < touchButton.item.rowSpan; j++) {
+          newFreeArea.push({
+            col: touchButton.item.col + i,
+            row: touchButton.item.row + j,
+          });
+        }
+      }
+      console.log(spanArea, newFreeArea);
+      for (let i = 0; i < spanArea.length; i++) {
+        const find = newFreeArea.find(
+          (item) => item.col === spanArea[i].col && item.row === spanArea[i].row
+        );
+        if (!find) {
+          return false;
+        }
+      }
       return true;
     } else {
+      const newFreeArea = [...touchButton.item.freeArea];
+      for (let i = 0; i < touchButton.item.colSpan; i++) {
+        for (let j = 0; j < touchButton.item.rowSpan; j++) {
+          newFreeArea.push({
+            col: touchButton.item.col + i,
+            row: touchButton.item.row + j,
+          });
+        }
+      }
       for (let i = 0; i < touchButton.item.rowSpan; i++) {
         for (let j = 0; j < touchButton.item.colSpan; j++) {
-          const find = touchButton.item.freeArea.find(
+          const find = newFreeArea.find(
             (item) => item.col === col + j && item.row === row + i
           );
           if (!find) {

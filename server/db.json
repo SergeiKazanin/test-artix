@@ -37,16 +37,6 @@
         "name": "св"
       },
       {
-        "code": 16,
-        "actionCode": 101,
-        "row": 1,
-        "column": 5,
-        "rowSpan": 3,
-        "columnSpan": 1,
-        "color": "ed2e28",
-        "name": ""
-      },
-      {
         "code": 4,
         "actionCode": 15,
         "row": 1,
@@ -64,6 +54,16 @@
         "rowSpan": 1,
         "columnSpan": 1,
         "color": "",
+        "name": ""
+      },
+      {
+        "code": 1,
+        "actionCode": 77,
+        "row": 1,
+        "column": 5,
+        "rowSpan": 3,
+        "columnSpan": 1,
+        "color": "e2e2e2",
         "name": ""
       }
     ]

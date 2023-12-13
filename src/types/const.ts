@@ -5,7 +5,7 @@ export const ItemTypes = {
 export const optionRowCount = ["1", "2", "3", "4", "5", "6"];
 export const optionColumnCount = [
   "1",
-  " 2",
+  "2",
   "3",
   "4",
   "5",
