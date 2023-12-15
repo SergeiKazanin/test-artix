@@ -60,7 +60,9 @@ function App() {
     }
   }, [actionsPanelCodeLoad]);
 
-  useMemo(() => getFreeArea(actionsPanelCode), [actionsPanelCode]);
+  useEffect(() => {
+    getFreeArea(actionsPanelCode);
+  }, [actionsPanelCode]);
 
   const {
     data: actions,
