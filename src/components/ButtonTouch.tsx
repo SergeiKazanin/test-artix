@@ -49,7 +49,7 @@ const ButtonTouch: FC<ButtonProps> = ({ actionPanelItem, actions }) => {
             ? `${actionPanelItem.color}`
             : "e2e2e2"
         }`,
-        border: isDragging ? 1 : "none",
+        //border: isDragging ? 1 : "none",
         boxShadow: isDragging ? 3 : "none",
         display: "flex",
         flexDirection: "column",

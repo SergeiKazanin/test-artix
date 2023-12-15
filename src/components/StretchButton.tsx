@@ -45,8 +45,8 @@ const StretchButton: FC<StretchButtonProps> = ({
           position: "absolute",
           bottom: "0px",
           right: "0px",
-          opacity: isDragging ? 0.5 : 1,
           display: display,
+          cursor: "move",
         }}
         ref={drag}
       >
