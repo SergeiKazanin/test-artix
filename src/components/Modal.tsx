@@ -18,14 +18,9 @@ import { useAppSelector } from "../hooks/redux";
 interface ModalProps {
   isOpen: boolean;
   setModalIsOpen: (isOpen: boolean) => void;
-  createButton: boolean;
 }
 
-const Modal: FC<ModalProps> = ({
-  isOpen,
-  setModalIsOpen,
-  createButton = false,
-}) => {
+const Modal: FC<ModalProps> = ({ isOpen, setModalIsOpen }) => {
   const { addTouchButton, editTouchButton } = useActions();
   const { freeArea, buttonEdit } = useAppSelector((store) => store.panel);
   const [color, setColor] = useState("#e2e2e2");

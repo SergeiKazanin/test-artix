@@ -112,21 +112,21 @@ const slice = createSlice({
     },
     editTouchButton(state, action: PayloadAction<AddTouchButtonEdit>) {
       const actionsPanelCode = current(state.actionsPanelCode);
-      let findbutton = actionsPanelCode.actionPanelItems.find(
+      let findButton = actionsPanelCode.actionPanelItems.find(
         (button) => button.actionCode === action.payload.oldAction
       );
-      if (findbutton) {
+      if (findButton) {
         let filterButtons = actionsPanelCode.actionPanelItems.filter(
           (button) => button.actionCode !== action.payload.oldAction
         );
-        findbutton = {
-          ...findbutton,
+        findButton = {
+          ...findButton,
           actionCode: action.payload.action,
           name: action.payload.name,
           color: action.payload.color.slice(1),
         };
         state.actionsPanelCode.actionPanelItems = filterButtons;
-        state.actionsPanelCode.actionPanelItems.push(findbutton);
+        state.actionsPanelCode.actionPanelItems.push(findButton);
       }
     },
     getFreeArea(state, action: PayloadAction<ActionsPanelCode>) {

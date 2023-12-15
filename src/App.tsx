@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "./components/Modal";
 import { ReactComponent as Logo } from "./assets/artix_logo.svg";
 import { useActions } from "./hooks/actions";
@@ -41,7 +41,6 @@ function App() {
   } = useActions();
   const { actionsPanelCode, freeArea } = useAppSelector((store) => store.panel);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [createButton, setCreateButton] = useState(false);
 
   const { data: contexts } = useGetContextsQuery("");
   const {
@@ -107,11 +106,7 @@ function App() {
             <Logo />
           </Toolbar>
         </AppBar>
-        <Modal
-          isOpen={modalIsOpen}
-          setModalIsOpen={setModalIsOpen}
-          createButton={createButton}
-        />
+        <Modal isOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
         <Box
           sx={{
             marginTop: 8,
