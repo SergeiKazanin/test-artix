@@ -12,10 +12,15 @@ import { useAppSelector } from "../hooks/redux";
 interface ButtonProps {
   actionPanelItem: ActionPanelItem;
   actions: Actions;
+  setModalIsOpen: (isOpen: boolean) => void;
 }
 
-const ButtonTouch: FC<ButtonProps> = ({ actionPanelItem, actions }) => {
-  const { deleteTouchButton } = useActions();
+const ButtonTouch: FC<ButtonProps> = ({
+  actionPanelItem,
+  actions,
+  setModalIsOpen,
+}) => {
+  const { deleteTouchButton, setButtonEdit } = useActions();
   const { freeArea } = useAppSelector((store) => store.panel);
   const [displayButtons, setDisplayButtons] = useState("none");
   let item = {
@@ -56,6 +61,7 @@ const ButtonTouch: FC<ButtonProps> = ({ actionPanelItem, actions }) => {
         justifyContent: "center",
         alignItems: "center",
         position: "relative",
+        cursor: "pointer",
         p: 2,
       }}
       gridColumn={
@@ -70,6 +76,10 @@ const ButtonTouch: FC<ButtonProps> = ({ actionPanelItem, actions }) => {
       }
       onMouseOver={() => setDisplayButtons((prev) => (prev = "box"))}
       onMouseOut={() => setDisplayButtons((prev) => (prev = "none"))}
+      onClick={() => {
+        setModalIsOpen(true);
+        setButtonEdit({ ...actionPanelItem, edit: true });
+      }}
     >
       <Typography
         variant="caption"
@@ -85,7 +95,10 @@ const ButtonTouch: FC<ButtonProps> = ({ actionPanelItem, actions }) => {
         }
       </Typography>
       <IconButton
-        onClick={() => deleteTouchButton(item)}
+        onClick={(e) => {
+          e.stopPropagation();
+          deleteTouchButton(item);
+        }}
         sx={{
           p: "5px",
           position: "absolute",
@@ -107,6 +120,9 @@ const ButtonTouch: FC<ButtonProps> = ({ actionPanelItem, actions }) => {
           left: "0px",
           cursor: "move",
           display: displayButtons,
+        }}
+        onClick={(e) => {
+          e.stopPropagation();
         }}
       >
         <ZoomOutMapIcon sx={{ rotate: "45deg" }} />

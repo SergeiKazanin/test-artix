@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import {
   IconButton,
@@ -26,12 +26,25 @@ const Modal: FC<ModalProps> = ({
   setModalIsOpen,
   createButton = false,
 }) => {
-  const { addTouchButton } = useActions();
-  const { freeArea } = useAppSelector((store) => store.panel);
+  const { addTouchButton, editTouchButton } = useActions();
+  const { freeArea, buttonEdit } = useAppSelector((store) => store.panel);
   const [color, setColor] = useState("#e2e2e2");
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
-
+  const [action, setAction] = useState<number>(0);
   const [name, setName] = useState<string>("");
+
+  useEffect(() => {
+    setColor("#e2e2e2");
+    setName("");
+    setAction(0);
+    if (buttonEdit.edit === true) {
+      setName(buttonEdit.name);
+      setAction(buttonEdit.actionCode);
+      if (buttonEdit.color.length > 0) {
+        setColor(`#${buttonEdit.color}`);
+      }
+    }
+  }, [buttonEdit]);
 
   const {
     data: actions,
@@ -42,7 +55,7 @@ const Modal: FC<ModalProps> = ({
   if (!isFetchingActions && !isErrorActions && actions) {
     actionsLoaded = actions;
   }
-  const [action, setAction] = useState<number>(0);
+
   const options = actionsLoaded.map((option) => ({
     label: option.actionName,
     key: option.actionCode,
@@ -89,7 +102,7 @@ const Modal: FC<ModalProps> = ({
             noWrap
             component="div"
           >
-            {createButton ? "Создание клавиши" : "Редактирвоание клавиши"}
+            {buttonEdit.edit ? "Редактирвоание клавиши" : "Создание клавиши"}
           </Typography>
           <TextField
             sx={{ paddingBottom: 3 }}
@@ -109,15 +122,12 @@ const Modal: FC<ModalProps> = ({
             isOptionEqualToValue={(options, value) =>
               options.label === value.label
             }
-            inputValue={
-              actionsLoaded.find((item) => action === item?.actionCode)
-                ?.actionName || ""
-            }
-            onInputChange={(event, newInputValue) => {
-              setAction(
-                actionsLoaded.find((item) => newInputValue === item?.actionName)
-                  ?.actionCode || 0
-              );
+            value={options.find((option) => option.key === action) || null}
+            onChange={(
+              event: any,
+              newValue: { label: string; key: number } | null
+            ) => {
+              setAction(newValue?.key || 0);
             }}
             sx={{ paddingBottom: 3 }}
             renderInput={(params) => (
@@ -159,7 +169,16 @@ const Modal: FC<ModalProps> = ({
           )}
           <Box sx={{ display: "flex", gap: 2, paddingTop: 7 }}>
             <Button
-              onClick={() => addTouchButton({ action, name, color })}
+              onClick={() =>
+                buttonEdit.edit
+                  ? editTouchButton({
+                      action,
+                      name,
+                      color,
+                      oldAction: buttonEdit.actionCode,
+                    })
+                  : addTouchButton({ action, name, color })
+              }
               variant="contained"
               disabled={(freeArea.length > 0 ? false : true) || action === 0}
             >

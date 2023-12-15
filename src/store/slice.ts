@@ -6,6 +6,8 @@ import {
   AddTouchButton,
   ActionPanelItem,
   FreeArea,
+  ActionPanelItemEdit,
+  AddTouchButtonEdit,
 } from "../types/types";
 
 const slice = createSlice({
@@ -13,6 +15,7 @@ const slice = createSlice({
   initialState: {
     actionsPanelCode: {} as ActionsPanelCode,
     freeArea: [] as FreeArea[],
+    buttonEdit: {} as ActionPanelItemEdit,
   },
   reducers: {
     actionsPanelCodeAdd(state, action: PayloadAction<ActionsPanelCode>) {
@@ -87,6 +90,9 @@ const slice = createSlice({
     clearActionsPanel(state) {
       state.actionsPanelCode.actionPanelItems = [] as ActionPanelItem[];
     },
+    setButtonEdit(state, action: PayloadAction<ActionPanelItemEdit>) {
+      state.buttonEdit = action.payload;
+    },
     addTouchButton(state, action: PayloadAction<AddTouchButton>) {
       const actionsPanelCode = current(state.actionsPanelCode);
 
@@ -103,6 +109,25 @@ const slice = createSlice({
         name: action.payload.name,
       };
       state.actionsPanelCode.actionPanelItems.push(newTouchButton);
+    },
+    editTouchButton(state, action: PayloadAction<AddTouchButtonEdit>) {
+      const actionsPanelCode = current(state.actionsPanelCode);
+      let findbutton = actionsPanelCode.actionPanelItems.find(
+        (button) => button.actionCode === action.payload.oldAction
+      );
+      if (findbutton) {
+        let filterButtons = actionsPanelCode.actionPanelItems.filter(
+          (button) => button.actionCode !== action.payload.oldAction
+        );
+        findbutton = {
+          ...findbutton,
+          actionCode: action.payload.action,
+          name: action.payload.name,
+          color: action.payload.color.slice(1),
+        };
+        state.actionsPanelCode.actionPanelItems = filterButtons;
+        state.actionsPanelCode.actionPanelItems.push(findbutton);
+      }
     },
     getFreeArea(state, action: PayloadAction<ActionsPanelCode>) {
       const actionsPanelCode = current(state.actionsPanelCode);

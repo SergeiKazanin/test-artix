@@ -17,6 +17,9 @@ export interface ActionPanelItem {
   color: string;
   name: string;
 }
+export interface ActionPanelItemEdit extends ActionPanelItem {
+  edit: boolean;
+}
 
 export type Actions = Action[];
 
@@ -54,4 +57,7 @@ export interface AddTouchButton {
   action: number;
   name: string;
   color: string;
+}
+export interface AddTouchButtonEdit extends AddTouchButton {
+  oldAction: number;
 }

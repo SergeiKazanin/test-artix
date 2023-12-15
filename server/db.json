@@ -65,6 +65,16 @@
         "columnSpan": 1,
         "color": "e2e2e2",
         "name": ""
+      },
+      {
+        "code": 1,
+        "actionCode": 14,
+        "row": 2,
+        "column": 2,
+        "rowSpan": 1,
+        "columnSpan": 1,
+        "color": "417505",
+        "name": ""
       }
     ]
   },

@@ -22,7 +22,7 @@ import {
   useGetContextsQuery,
   useSaveActionsPanelCodeMutation,
 } from "./store/api";
-import { Actions, Contexts } from "./types/types";
+import { ActionPanelItemEdit, Actions, Contexts } from "./types/types";
 import Drop from "./components/Drop";
 import ButtonTouch from "./components/ButtonTouch";
 import { optionColumnCount, optionRowCount } from "./types/const";
@@ -37,6 +37,7 @@ function App() {
     setColumnCount,
     getFreeArea,
     clearActionsPanel,
+    setButtonEdit,
   } = useActions();
   const { actionsPanelCode, freeArea } = useAppSelector((store) => store.panel);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -256,7 +257,8 @@ function App() {
                   <Button
                     onClick={() => {
                       setModalIsOpen((prev) => (prev = true));
-                      setCreateButton((prev) => (prev = true));
+                      const setEditFalse = {} as ActionPanelItemEdit;
+                      setButtonEdit({ ...setEditFalse, edit: false });
                     }}
                     variant="contained"
                     color="secondary"
@@ -294,6 +296,7 @@ function App() {
                         }
                         actionPanelItem={item}
                         actions={actionsLoaded}
+                        setModalIsOpen={setModalIsOpen}
                       />
                     ))}
                     <Drop />

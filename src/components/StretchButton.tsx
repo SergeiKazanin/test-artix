@@ -40,6 +40,9 @@ const StretchButton: FC<StretchButtonProps> = ({
     <>
       <DragPreviewImage connect={preview} src={arrowStretch} />
       <IconButton
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
         sx={{
           p: "5px",
           position: "absolute",
