@@ -43,7 +43,10 @@ const Modal: FC<ModalProps> = ({
     actionsLoaded = actions;
   }
   const [action, setAction] = useState<number>(0);
-  console.log(action);
+  const options = actionsLoaded.map((option) => ({
+    label: option.actionName,
+    key: option.actionCode,
+  }));
   return (
     <>
       <Box
@@ -100,11 +103,15 @@ const Modal: FC<ModalProps> = ({
           <Autocomplete
             disablePortal
             id="context"
-            options={actionsLoaded.map((action) => action.actionName)}
+            options={options}
             fullWidth={true}
+            getOptionKey={(option) => option.key}
+            isOptionEqualToValue={(options, value) =>
+              options.label === value.label
+            }
             inputValue={
               actionsLoaded.find((item) => action === item?.actionCode)
-                ?.actionName
+                ?.actionName || ""
             }
             onInputChange={(event, newInputValue) => {
               setAction(
@@ -112,7 +119,6 @@ const Modal: FC<ModalProps> = ({
                   ?.actionCode || 0
               );
             }}
-            onChange={(event: any, newValue: string | null) => {}}
             sx={{ paddingBottom: 3 }}
             renderInput={(params) => (
               <TextField {...params} label="Действие" size="small" />

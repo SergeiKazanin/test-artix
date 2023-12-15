@@ -35,7 +35,7 @@ const DropArea: FC<DropAreaProps> = ({ col, row }) => {
           });
         }
       }
-      console.log(spanArea, newFreeArea);
+      //console.log(spanArea, newFreeArea);
       for (let i = 0; i < spanArea.length; i++) {
         const find = newFreeArea.find(
           (item) => item.col === spanArea[i].col && item.row === spanArea[i].row
