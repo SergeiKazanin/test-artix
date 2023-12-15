@@ -42,7 +42,8 @@ const Modal: FC<ModalProps> = ({
   if (!isFetchingActions && !isErrorActions && actions) {
     actionsLoaded = actions;
   }
-  const [action, setAction] = useState<number>(actionsLoaded[0]?.actionCode);
+  const [action, setAction] = useState<number>(0);
+  console.log(action);
   return (
     <>
       <Box
@@ -99,19 +100,19 @@ const Modal: FC<ModalProps> = ({
           <Autocomplete
             disablePortal
             id="context"
-            disableClearable={true}
             options={actionsLoaded.map((action) => action.actionName)}
             fullWidth={true}
-            value={
+            inputValue={
               actionsLoaded.find((item) => action === item?.actionCode)
                 ?.actionName
             }
-            onChange={(event: any, newValue: string | null) => {
+            onInputChange={(event, newInputValue) => {
               setAction(
-                actionsLoaded.find((item) => newValue === item?.actionName)
+                actionsLoaded.find((item) => newInputValue === item?.actionName)
                   ?.actionCode || 0
               );
             }}
+            onChange={(event: any, newValue: string | null) => {}}
             sx={{ paddingBottom: 3 }}
             renderInput={(params) => (
               <TextField {...params} label="Действие" size="small" />
@@ -154,7 +155,7 @@ const Modal: FC<ModalProps> = ({
             <Button
               onClick={() => addTouchButton({ action, name, color })}
               variant="contained"
-              disabled={freeArea.length > 0 ? false : true}
+              disabled={(freeArea.length > 0 ? false : true) || action === 0}
             >
               Сохранить
             </Button>
