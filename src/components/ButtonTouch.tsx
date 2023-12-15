@@ -100,7 +100,7 @@ const ButtonTouch: FC<ButtonProps> = ({
       <IconButton
         onClick={(e) => {
           e.stopPropagation();
-          deleteTouchButton({ ...item, name: "" });
+          deleteTouchButton(item);
         }}
         sx={{
           p: "5px",

@@ -26,7 +26,6 @@ const StretchButton: FC<StretchButtonProps> = ({
     colSpan: actionPanelItem.columnSpan,
     rowSpan: actionPanelItem.rowSpan,
     freeArea: freeArea,
-    name: actionPanelItem.name,
   };
   const [{ isDragging }, drag, preview] = useDrag(
     () => ({

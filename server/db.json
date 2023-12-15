@@ -38,16 +38,6 @@
       },
       {
         "code": 1,
-        "actionCode": 77,
-        "row": 1,
-        "column": 5,
-        "rowSpan": 3,
-        "columnSpan": 1,
-        "color": "e2e2e2",
-        "name": ""
-      },
-      {
-        "code": 1,
         "actionCode": 8,
         "row": 1,
         "column": 1,
@@ -60,11 +50,21 @@
         "code": 4,
         "actionCode": 15,
         "row": 2,
-        "column": 2,
+        "column": 4,
         "rowSpan": 1,
-        "columnSpan": 2,
+        "columnSpan": 1,
         "color": "e2e2e2",
         "name": "КНОПКА"
+      },
+      {
+        "code": 1,
+        "actionCode": 77,
+        "row": 1,
+        "column": 3,
+        "rowSpan": 3,
+        "columnSpan": 1,
+        "color": "e2e2e2",
+        "name": ""
       }
     ]
   },

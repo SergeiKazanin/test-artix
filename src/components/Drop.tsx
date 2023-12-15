@@ -35,6 +35,12 @@ const DropArea: FC<DropAreaProps> = ({ col, row }) => {
           });
         }
       }
+      if (
+        touchButton.col < touchButton.item.col ||
+        touchButton.row < touchButton.item.row
+      ) {
+        return false;
+      }
       //console.log(spanArea, newFreeArea);
       for (let i = 0; i < spanArea.length; i++) {
         const find = newFreeArea.find(
@@ -84,9 +90,9 @@ const DropArea: FC<DropAreaProps> = ({ col, row }) => {
   );
 
   let colorDrop = "";
-  isOver && !canDrop && (colorDrop = "#D0021B");
-  !isOver && canDrop && (colorDrop = "#F8E71C");
-  isOver && canDrop && (colorDrop = "#7ED321");
+  isOver && !canDrop && (colorDrop = "#D0021B"); //red
+  !isOver && canDrop && (colorDrop = "#F8E71C"); //yellow
+  isOver && canDrop && (colorDrop = "#7ED321"); //green
   return (
     <Box
       ref={drop}
