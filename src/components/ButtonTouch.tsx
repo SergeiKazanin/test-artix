@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { ActionPanelItem, Actions } from "../types/types";
 import { Box, IconButton, Typography } from "@mui/material";
 import { useDrag, DragPreviewImage } from "react-dnd";
@@ -23,6 +23,7 @@ const ButtonTouch: FC<ButtonProps> = ({
   const { deleteTouchButton, setButtonEdit } = useActions();
   const { freeArea } = useAppSelector((store) => store.panel);
   const [displayButtons, setDisplayButtons] = useState("none");
+  const [isStretch, setIsStretch] = useState(false);
   let item = {
     col: actionPanelItem.column,
     row: actionPanelItem.row,
@@ -54,9 +55,7 @@ const ButtonTouch: FC<ButtonProps> = ({
             ? `${actionPanelItem.color}`
             : "e2e2e2"
         }`,
-        //border: isDragging ? 1 : "none",
-        boxShadow: isDragging ? 3 : "none",
-        display: "flex",
+        display: isStretch || isDragging ? "none" : "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
@@ -65,16 +64,20 @@ const ButtonTouch: FC<ButtonProps> = ({
         p: 2,
       }}
       gridColumn={
-        actionPanelItem.columnSpan > 1
+        isStretch
+          ? actionPanelItem.column
+          : actionPanelItem.columnSpan > 1
           ? `${actionPanelItem.column}/span ${actionPanelItem.columnSpan}`
           : actionPanelItem.column
       }
       gridRow={
-        actionPanelItem.rowSpan > 1
+        isStretch
+          ? actionPanelItem.row
+          : actionPanelItem.rowSpan > 1
           ? `${actionPanelItem.row}/span ${actionPanelItem.rowSpan}`
           : actionPanelItem.row
       }
-      onMouseOver={() => setDisplayButtons((prev) => (prev = "box"))}
+      onMouseOver={() => setDisplayButtons((prev) => (prev = ""))}
       onMouseOut={() => setDisplayButtons((prev) => (prev = "none"))}
       onClick={() => {
         setModalIsOpen(true);
@@ -97,7 +100,7 @@ const ButtonTouch: FC<ButtonProps> = ({
       <IconButton
         onClick={(e) => {
           e.stopPropagation();
-          deleteTouchButton(item);
+          deleteTouchButton({ ...item, name: "" });
         }}
         sx={{
           p: "5px",
@@ -130,6 +133,7 @@ const ButtonTouch: FC<ButtonProps> = ({
       <StretchButton
         actionPanelItem={actionPanelItem}
         display={displayButtons}
+        setIsStretch={setIsStretch}
       />
     </Box>
   );

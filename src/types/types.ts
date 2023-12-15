@@ -47,6 +47,7 @@ export interface Item {
   colSpan: number;
   rowSpan: number;
   freeArea: FreeArea[];
+  name: string;
 }
 export interface FreeArea {
   col: number;

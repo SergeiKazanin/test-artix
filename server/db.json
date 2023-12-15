@@ -27,16 +27,6 @@
         "name": ""
       },
       {
-        "code": 1,
-        "actionCode": 8,
-        "row": 1,
-        "column": 1,
-        "rowSpan": 1,
-        "columnSpan": 1,
-        "color": "4a90e2",
-        "name": "св"
-      },
-      {
         "code": 6,
         "actionCode": 9,
         "row": 3,
@@ -58,18 +48,18 @@
       },
       {
         "code": 1,
-        "actionCode": 14,
-        "row": 2,
-        "column": 2,
+        "actionCode": 8,
+        "row": 1,
+        "column": 1,
         "rowSpan": 1,
         "columnSpan": 1,
-        "color": "417505",
-        "name": ""
+        "color": "4a90e2",
+        "name": "св"
       },
       {
         "code": 4,
         "actionCode": 15,
-        "row": 1,
+        "row": 2,
         "column": 2,
         "rowSpan": 1,
         "columnSpan": 2,

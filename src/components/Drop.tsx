@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { FC } from "react";
 import { Item, TouchButton } from "../types/types";
 import { useDrop } from "react-dnd";
@@ -69,7 +69,7 @@ const DropArea: FC<DropAreaProps> = ({ col, row }) => {
     }
   };
 
-  const [{ isOver, canDrop }, drop] = useDrop(
+  const [{ isOver, canDrop, item }, drop] = useDrop(
     () => ({
       accept: ItemTypes.BUTTON,
       drop: (item: Item) => moveTouchButton({ col, row, item }),
@@ -77,10 +77,12 @@ const DropArea: FC<DropAreaProps> = ({ col, row }) => {
       collect: (monitor) => ({
         isOver: !!monitor.isOver(),
         canDrop: !!monitor.canDrop(),
+        item: monitor.getItem(),
       }),
     }),
     [col, row]
   );
+
   let colorDrop = "";
   isOver && !canDrop && (colorDrop = "#D0021B");
   !isOver && canDrop && (colorDrop = "#F8E71C");
@@ -93,10 +95,26 @@ const DropArea: FC<DropAreaProps> = ({ col, row }) => {
         height: "100%",
         borderRadius: "4px",
         background: colorDrop,
+        zIndex: "2",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        p: 2,
       }}
       gridColumn={col}
       gridRow={row}
-    ></Box>
+    >
+      <Typography
+        variant="inherit"
+        component="div"
+        sx={{
+          textAlign: "center",
+        }}
+      >
+        {col === item?.col && row === item?.row ? "Начальная позиция" : ""}
+      </Typography>
+    </Box>
   );
 };
 interface FreeArea {

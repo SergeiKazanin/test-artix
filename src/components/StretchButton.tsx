@@ -1,6 +1,6 @@
 import { IconButton } from "@mui/material";
 import OpenInFullIcon from "@mui/icons-material/OpenInFull";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { ActionPanelItem } from "../types/types";
 import { DragPreviewImage, useDrag } from "react-dnd";
 import { ItemTypes } from "../types/const";
@@ -10,11 +10,13 @@ import { useAppSelector } from "../hooks/redux";
 interface StretchButtonProps {
   actionPanelItem: ActionPanelItem;
   display: string;
+  setIsStretch: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const StretchButton: FC<StretchButtonProps> = ({
   actionPanelItem,
   display,
+  setIsStretch,
 }) => {
   const { freeArea } = useAppSelector((store) => store.panel);
   let item = {
@@ -24,6 +26,7 @@ const StretchButton: FC<StretchButtonProps> = ({
     colSpan: actionPanelItem.columnSpan,
     rowSpan: actionPanelItem.rowSpan,
     freeArea: freeArea,
+    name: actionPanelItem.name,
   };
   const [{ isDragging }, drag, preview] = useDrag(
     () => ({
@@ -35,6 +38,13 @@ const StretchButton: FC<StretchButtonProps> = ({
     }),
     [item]
   );
+  useEffect(() => {
+    isDragging && setIsStretch((prev) => (prev = true));
+
+    return () => {
+      setIsStretch((prev) => (prev = false));
+    };
+  }, [isDragging]);
 
   return (
     <>
