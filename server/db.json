@@ -37,16 +37,6 @@
         "name": "св"
       },
       {
-        "code": 4,
-        "actionCode": 15,
-        "row": 1,
-        "column": 2,
-        "rowSpan": 1,
-        "columnSpan": 2,
-        "color": "",
-        "name": ""
-      },
-      {
         "code": 6,
         "actionCode": 9,
         "row": 3,
@@ -75,6 +65,16 @@
         "columnSpan": 1,
         "color": "417505",
         "name": ""
+      },
+      {
+        "code": 4,
+        "actionCode": 15,
+        "row": 1,
+        "column": 2,
+        "rowSpan": 1,
+        "columnSpan": 2,
+        "color": "e2e2e2",
+        "name": "КНОПКА"
       }
     ]
   },

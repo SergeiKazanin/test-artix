@@ -88,11 +88,11 @@ const ButtonTouch: FC<ButtonProps> = ({
           textAlign: "center",
         }}
       >
-        {
-          actions.find(
-            (action) => action.actionCode === actionPanelItem.actionCode
-          )?.actionName
-        }
+        {actionPanelItem.name.length > 0
+          ? actionPanelItem.name
+          : actions.find(
+              (action) => action.actionCode === actionPanelItem.actionCode
+            )?.actionName}
       </Typography>
       <IconButton
         onClick={(e) => {
